@@ -2496,7 +2496,7 @@ config t
   neighbor 25.2.5.5 activate
   neighbor 32.3.2.3 activate
   neighbor 207.7.7.1 activate
-  network 207.0.0.0 mask 255.255.255.0
+  network 207.7.7.0 mask 255.255.255.0
   network 22.22.22.22 mask 255.255.255.255
   network 24.2.4.0 mask 255.255.255.0
   network 25.2.5.0 mask 255.255.255.0
