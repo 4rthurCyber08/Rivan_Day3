@@ -7,6 +7,7 @@ _MPLSCloud = "6"
 _WAN = "7"
 _3Tier = "8"
 _NetAuto = "9"
+_InterNetwork = "10"
 
 rst_ip = crt.Dialog.Prompt("What is your RST IPv4 Address? ")
 lab = crt.Dialog.Prompt("""
@@ -21,6 +22,7 @@ MPLS = 6
 WAN = 7
 3Tier = 8
 NetAuto = 9
+InterNetwork = 10
 
 Manually enter a series of port numbers = 0 
 
@@ -166,6 +168,43 @@ elif lab == "9":
         "/TELNET " + rst_ip + " 2270",
         "/TELNET " + rst_ip + " 2271",
         "/TELNET " + rst_ip + " 2272"
+    ]
+elif lab == "10":
+    connections = [
+        "/TELNET " + rst_ip + " 2801",
+        "/TELNET " + rst_ip + " 2802",
+        "/TELNET " + rst_ip + " 2803",
+        "/TELNET " + rst_ip + " 2804",
+        "/TELNET " + rst_ip + " 2805",
+        "/TELNET " + rst_ip + " 2806",
+        "/TELNET " + rst_ip + " 2807",
+        "/TELNET " + rst_ip + " 2808",
+        "/TELNET " + rst_ip + " 2809",
+        "/TELNET " + rst_ip + " 2810",
+        "/TELNET " + rst_ip + " 2811",
+        "/TELNET " + rst_ip + " 2812",
+        "/TELNET " + rst_ip + " 2813",
+        "/TELNET " + rst_ip + " 2814",
+        "/TELNET " + rst_ip + " 2815",
+        "/TELNET " + rst_ip + " 2816",
+        "/TELNET " + rst_ip + " 2817",
+        "/TELNET " + rst_ip + " 2818",
+        "/TELNET " + rst_ip + " 2819",
+        "/TELNET " + rst_ip + " 2820",
+        "/TELNET " + rst_ip + " 2821",
+        "/TELNET " + rst_ip + " 2822",
+        "/TELNET " + rst_ip + " 2823",
+        "/TELNET " + rst_ip + " 2824",
+        "/TELNET " + rst_ip + " 2825",
+        "/TELNET " + rst_ip + " 2826",
+        "/TELNET " + rst_ip + " 2827",
+        "/TELNET " + rst_ip + " 2828",
+        "/TELNET " + rst_ip + " 2829",
+        "/TELNET " + rst_ip + " 2830",
+        "/TELNET " + rst_ip + " 2831",
+        "/TELNET " + rst_ip + " 2832",
+        "/TELNET " + rst_ip + " 2833",
+        "/TELNET " + rst_ip + " 2834"
     ]
 elif lab == "0":
     port_list = []
