@@ -975,3 +975,83 @@ conf t
   exit
  !
  ip nat inside source list 1 interface ethernet 1/1 overload
+
+
+
+
+
+
+
+
+---
+
+IP SLA
+
+
+conf t 
+ ip sla 1
+  icmp-echo 8.8.8.8
+  frequency 10
+ ip sla schedule 1 life forever start-time now
+ end
+
+TRACK
+
+conf t
+ track 1 ip sla 1 reachability 
+ track 1 ip sla 1 state
+  delay up 5
+  delay down 10
+ end
+
+ROUTE-MAP
+
+conf t
+ route-map NAT-FAILOVER-PLDT permit 10
+  match ip address 1
+  set int e1/2
+ route-map NAT-FAILOVER-GLOBE permit 20
+  match ip address 1
+  set int e1/3
+  end
+  
+ route-map NAT-FAILOVER permit 10
+  match track 1
+  set int e1.2
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route MAPS
+
+!@R1
+conf t
+ access-list 10 permit 10.2.1.0 0.0.0.255
+ access-list 20 permit 10.2.2.0 0.0.0.255
+ access-list 30 permit 192.168.1.128 0.0.0.31
+ 
+ ip nat pool CONVERGE 208.8.8.1 208.8.8.254 netmask 255.255.255.0
+ ip nat pool PLDT 207.7.7.1 207.7.7.254 netmask 255.255.255.0
+ ip nat pool GLOBE 209.9.9.1 209.9.9.254 netmask 255.255.255.0
+ 
+ route-map RM_CONVERGE permit 10
+  match ip address 10
+  set ip nat pool CONVERGE
+ route-map RM_PLDT permit 20
+  match ip address 20
+  set ip nat pool PLDT 
