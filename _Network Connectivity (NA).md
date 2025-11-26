@@ -1766,7 +1766,7 @@ __LSA__ - Link-State Advertisement
 !@EDGE
 conf t
  int lo#$34T#
-  int #$34T#.#$34T#.#$34T#.#$34T# 255.255.255.255
+  ip add #$34T#.#$34T#.#$34T#.#$34T# 255.255.255.255
   ip ospf 1 area #$34T#
   end
 clear ip ospf process
