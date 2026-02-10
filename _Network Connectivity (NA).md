@@ -2833,123 +2833,125 @@ conf t
 ---
 &nbsp;
 
+## IPv6
+*What is a valid IPv6 address?*
 
+<br>
 
+### IPv6 compression rules  
 
+__1. All zeroes on the left are ommitted.__  
 
+` :00a0:  >   :a0: `  
 
+<br>
 
+__2. Subsequent zeroes turn into double colon.__  
 
+` :0000:0000:0000:00a0:  >  ::a0: `
 
+<br>
 
+### 3. When there are two subsequent zeroes, the one with more zeroes gets turned into :
+while the other zeroes becom :0:  
 
+` :0000:0000:00a0:0000:0000:0000:  >  :0:0:a0:: `
 
+<br>
 
+### 4. When subsequent zeroes match on both sides, the one on the left turns into double colon.
 
+` :0000:0000:00a0:0000:0000:  >  ::a0:0:0: `  
 
+<br>
+<br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-IPv6
-
-Does your device support IPv6?
-
-
-What is a valid IPv6 address?
-
-
-IPv6 compression rules
-
-1. All zeroes on the left are ommitted.
-
-:00a0:  >   :a0:
-
-2. Subsequent zeroes turn into double colon.
-
-:0000:0000:0000:00a0:  >  ::a0:
-
-3. When there are two subsequent zeroes, the one with more zeroes gets turned into :
-while the other zeroes becom :0:
-
-:0000:0000:00a0:0000:0000:0000:  >  :0:0:a0::
-
-4. When subsequent zeroes match on both sides, the one on the left turns into double colon.
-
-:0000:0000:00a0:0000:0000:  >  ::a0:0:0:
-
-
-Exercise 21: Compress IPv6 address
-
-1. 000a:000c:0000:0000:0000:0000:0000:0000/64 =
-	
-2. 0000:0000:0000:0000:0000:0000:0000:0000/0 = 
-			
-3. fe80:0000:0000:0000:000a:0000:0000:000f/64 =
-	
-4. 2002:6500:0000:3000:0000:0000:0000:0000/64 = 
-	
-5. 0000:0000:0000:0000:0000:0000:0000:0001/128 = 
-	
-6. ff00:0000:0000:beef:a00a:0aa0:0000:0000/8 = 
-
-
+&nbsp;
 ---
+&nbsp;
+
+### 🎯 Exercise 21: Compress IPv6 address
+
+1. 000a:000c:0000:0000:0000:0000:0000:0000/64
+     =
+
+<br>
+
+3. 0000:0000:0000:0000:0000:0000:0000:0000/0
+     = 
+
+<br>
+
+5. fe80:0000:0000:0000:000a:0000:0000:000f/64
+     =
+
+<br>
+
+7. 2002:6500:0000:3000:0000:0000:0000:0000/64
+     = 
+
+<br>
+
+9. 0000:0000:0000:0000:0000:0000:0000:0001/128
+     = 
+
+<br>
+
+11. ff00:0000:0000:beef:a00a:0aa0:0000:0000/8
+     = 
 
 
-IPv6 subnetting
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
+
+### IPv6 subnetting
+
+` 8i  4i  2i   1i    8i  4i  2i   1i     8i  4i  2i   1i    8i  4i  2i   1i `
+
+<br>
+<br>
+
+__Determine where the slash is located__
+
+/64 = (Hextet, Hexadecimal, i)  
+/65 = (Hextet, Hexadecimal, i)  
+/72 = (Hextet, Hexadecimal, i)  
+
+<br>
+
+/120 = (Hextet, Hexadecimal, i)  
+/27  = (Hextet, Hexadecimal, i)  
+
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
+
+## IPV6 SUBNETTING (HOSTS):
+
+1. Design an IPv6 network for 48 users using the available IPv6 address space of fec0:aabb:fafa:dada::/64
+
+C: 48 = 6 bits
+S: /128 - 6 bits = /122
+I:
+
+<br>
+
+|              |      |
+| ---          | ---  |
+| Network:     |      |
+| First Valid: |      |
+| Last Valid:  |      |
+|              |      |
+| Not Network: |      |
 
 
-8  4  2   1    8  4  2   1     8  4  2   1    8  4  2   1 
-
-
-IPV6 SUBNETTING (HOSTS):
-fec0:aabb:fafa:dada::/64 subnet for 48 users:
-Convert:
-S:
-Ipasok:
 
 
 
