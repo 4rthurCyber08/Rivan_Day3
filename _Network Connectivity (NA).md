@@ -2935,7 +2935,7 @@ __Determine where the slash is located__
 
 ## IPV6 SUBNETTING (HOSTS):
 
-1. Design an IPv6 network for 48 users using the available IPv6 address space of fec0:aabb:fafa:dada::/64
+### 1. Design an IPv6 network for 48 users using the available IPv6 address space of fec0:aabb:fafa:dada::/64
 
 ~~~
 C:  
@@ -2999,7 +2999,9 @@ Compressed Version:
 ~~~
 C: 48 = 6 bits
 S: /128 - 6 bits = /122 (8th, 3rd, 4i)
-I: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
+I:
+  1st Subnet: fec0:aabb:fafa:dada:0000:0000:0000:0000/122
+  2nd Subnet: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
 
 Compressed Version: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
 ~~~
@@ -3008,11 +3010,149 @@ Compressed Version: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
 
 |                      |                             |
 | ---                  | ---                         |
-| Network/Anycast:     | fec0:aabb:fafa:dada::40/122 |
-| First Valid:         | fec0:aabb:fafa:dada::41/122 |
-| Last Valid:          | fec0:aabb:fafa:dada::7F/122 |
+| Network/Anycast:     | fec0:aabb:fafa:dada::00/122 |
+| First Valid:         | fec0:aabb:fafa:dada::01/122 |
+| Last Valid:          | fec0:aabb:fafa:dada::3F/122 |
 |                      |                             |
-| Not Network:         | fec0:aabb:fafa:dada::80/122 |
+| Not Network:         | fec0:aabb:fafa:dada::40/122 |
+
+</details>
+
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
+
+### 2. Design an IPv6 network for 780 users using the available IPv6 address space of 2001:db8:b:efe:1::/64
+
+~~~
+C:  
+S: 
+I: 
+
+Compressed Version: 
+~~~
+
+|                      |                             |
+| ---                  | ---                         |
+| Network/Anycast:     |                             |
+| First Valid:         |                             |
+| Last Valid:          |                             |
+|                      |                             |
+| Not Network:         |                             |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## IPV6 SUBNETTING (SUBNETS):
+
+1. Subnet for 16 sites using 2001:db8:1:20::/64
+
+~~~
+C:
+A:
+I:
+
+
+
+Compressed Version: 
+~~~
+
+<br>
+
+|                      |                                      |
+| ---                  | ---                                  |
+| Network/Anycast:     |                                      |
+| First Valid:         |                                      |
+| Last Valid:          |                                      |
+|                      |                                      |
+| Not Network:         |                                      |
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
+
+### ANSWER
+
+<details>
+<summary>Show Answer</summary>
+
+~~~
+C: 16 = 5 bits
+A: /64 + 5 bits = /69 (5th, 2nd, 8i)
+I:
+  1st Subnet: 2001:0db8:0001:0020:0000:0000:0000:0000 /69
+  2nd Subnet: 2001:0db8:0001:0020:0800:0000:0000:0000 /69
+
+Compressed Version: 2001:db8:1:20::/69
+~~~
+
+<br>
+
+|                      |                                      |
+| ---                  | ---                                  |
+| Network/Anycast:     | 2001:db8:1:20::/69                   |
+| First Valid:         | 2001:db8:1:20::1/69                  |
+| Last Non-Anycast:    | 2001:db8:1:20:7FF:FFFF:FFFF:FF7F /69 |
+| First Anycast:       | 2001:db8:1:20:7FF:FFFF:FFFF:FF80 /69 |
+| Last Anycast:        | 2001:db8:1:20:7FF:FFFF:FFFF:FFFF /69 |
+|                      |                                      |
+| Not Network:         | 2001:db8:1:20:800::/69               |
 
 </details>
 
@@ -3024,12 +3164,26 @@ Compressed Version: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
 ---
 &nbsp;
 
-## IPV6 SUBNETTING (SUBNETS):
 
-fec0:aabb:fafa:dada::/64 subnet to 22 offices/subnets:
-Convert:  22 -> 5bits
-Add: /64 + /5 = /69
-Ipasok:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
