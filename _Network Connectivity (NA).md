@@ -2714,7 +2714,7 @@ conf t
 ~~~
 !@R1
 conf t
- ip nat pool NATPOOL 207.7.7.10 207.7.7.20 netmask 255.255.255.0
+ ip nat pool NATPOOL 209.9.9.10 209.9.9.20 netmask 255.255.255.0
  ip nat inside source list 1 pool NATPOOL
  end
 ~~~
@@ -2762,7 +2762,12 @@ conf t
 ---
 &nbsp;
 
-### 🎯 Exercise 20: Configure P1, P2, S1, & S2 to successfully ping 8.8.8.8
+### 🎯 Exercise 20: Configure P1, P2, S1, & S2 to successfully ping 8.8.8.8 using a static NAT assignment.
+
+P1 = 207.7.7.201
+P2 = 207.7.7.202
+S1 = 209.9.9.201
+S2 = 209.9.9.202
 
 <br>
 <br>
@@ -2794,6 +2799,32 @@ conf t
 <br>
 <br>
 <br>
+
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
+
+### ANSWER
+
+<details>
+<summary>Show Answer</summary>
+
+~~~
+!@R1
+clear ip nat translations *
+conf t
+ ip nat inside source static [P1 IP] 207.7.7.201
+ ip nat inside source static [P2 IP] 207.7.7.202
+ ip nat inside source static [S1 IP] 209.9.9.201
+ ip nat inside source static [S2 IP] 209.9.9.202
+ end
+~~~
+
+</details>
+
 
 <br>
 <br>
