@@ -2937,25 +2937,95 @@ __Determine where the slash is located__
 
 1. Design an IPv6 network for 48 users using the available IPv6 address space of fec0:aabb:fafa:dada::/64
 
+~~~
+C:  
+S: 
+I: 
+
+Compressed Version: 
+~~~
+
+|                      |                             |
+| ---                  | ---                         |
+| Network/Anycast:     |                             |
+| First Valid:         |                             |
+| Last Valid:          |                             |
+|                      |                             |
+| Not Network:         |                             |
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
+
+### ANSWER
+
+<details>
+<summary>Show Answer</summary>
+
+~~~
 C: 48 = 6 bits
-S: /128 - 6 bits = /122
-I:
+S: /128 - 6 bits = /122 (8th, 3rd, 4i)
+I: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
+
+Compressed Version: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
+~~~
 
 <br>
 
-|              |      |
-| ---          | ---  |
-| Network:     |      |
-| First Valid: |      |
-| Last Valid:  |      |
-|              |      |
-| Not Network: |      |
+|                      |                             |
+| ---                  | ---                         |
+| Network/Anycast:     | fec0:aabb:fafa:dada::40/122 |
+| First Valid:         | fec0:aabb:fafa:dada::41/122 |
+| Last Valid:          | fec0:aabb:fafa:dada::7F/122 |
+|                      |                             |
+| Not Network:         | fec0:aabb:fafa:dada::80/122 |
+
+</details>
 
 
+<br>
+<br>
 
+&nbsp;
+---
+&nbsp;
 
+## IPV6 SUBNETTING (SUBNETS):
 
-IPV6 SUBNETTING (SUBNETS):
 fec0:aabb:fafa:dada::/64 subnet to 22 offices/subnets:
 Convert:  22 -> 5bits
 Add: /64 + /5 = /69
