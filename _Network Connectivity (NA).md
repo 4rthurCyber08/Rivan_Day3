@@ -3043,31 +3043,83 @@ Compressed Version:
 |                      |                             |
 | Not Network:         |                             |
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+<br>
+<br>
 
+&nbsp;
+---
+&nbsp;
 
+### ANSWER
 
+<details>
+<summary>Show Answer</summary>
 
+~~~
+C: 780 = 10 bits
+S: /128 - 10 bits = /118 (8th, 2nd, 4i)
+I:
+  1st Subnet: 2001:0db8:000b:0efe:0001:0000:0000:0000:/118
+  2nd Subnet: 2001:0db8:000b:0efe:0001:0000:0000:0400:/118
 
+Compressed Version: 2001:db8:b:efe:1::/118
+~~~
 
+<br>
 
+|                      |                           |
+| ---                  | ---                       |
+| Network/Anycast:     | 2001:db8:b:efe:1::/118    |
+| First Valid:         | 2001:db8:b:efe:1::1/118   |
+| Last Non-Anycast:    | 2001:db8:b:efe:1::37F/118 |
+| First Anycast:       | 2001:db8:b:efe:1::380/118 |
+| Last Anycast:        | 2001:db8:b:efe:1::3FF/118 |
+|                      |                           |
+| Not Network:         | 2001:db8:b:efe:1::400/118 |
 
+</details>
 
+<br>
+<br>
 
-
-
-
-
-
-
-
-
-
-
+&nbsp;
+---
+&nbsp;
 
 ## IPV6 SUBNETTING (SUBNETS):
 
-1. Subnet for 16 sites using 2001:db8:1:20::/64
+### 1. Subnet for 16 sites using 2001:db8:1:20::/64  Determine the First Subnet  
 
 ~~~
 C:
@@ -3164,8 +3216,103 @@ Compressed Version: 2001:db8:1:20::/69
 ---
 &nbsp;
 
+### 2. Subnet for 78 sites using 2001:db8:2:5::/98  Determine the Third Subnet
+
+~~~
+C:
+A:
+I:
 
 
+
+Compressed Version: 
+~~~
+
+<br>
+
+|                      |                                      |
+| ---                  | ---                                  |
+| Network/Anycast:     |                                      |
+| First Valid:         |                                      |
+| Last Valid:          |                                      |
+|                      |                                      |
+| Not Network:         |                                      |
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
+
+### ANSWER
+
+<details>
+<summary>Show Answer</summary>
+
+~~~
+C: 78 = 7 bits
+A: /98 + 7 bits = /105 (7th, 3rd, 8i)
+I:
+  1st Subnet: 2001:0db8:0002:0005:0000:0000:0000:0000 /105
+  2nd Subnet: 2001:0db8:0002:0005:0000:0000:0080:0000 /105
+  3rd Subnet: 2001:0db8:0002:0005:0000:0000:0100:0000 /105
+  4th Subnet: 2001:0db8:0002:0005:0000:0000:0180:0000 /105
+Compressed Version: 2001:bd8:2:5::100:0/105
+~~~
+
+<br>
+
+|                      |                            |
+| ---                  | ---                        |
+| Network/Anycast:     | 2001:bd8:2:5::100:0/105    |
+| First Valid:         | 2001:bd8:2:5::100:1/105    |
+| Last Non-Anycast:    | 2001:bd8:2:5::17F:FF7F/105 |
+| First Anycast:       | 2001:bd8:2:5::17F:FF80/105 |
+| Last Anycast:        | 2001:bd8:2:5::17F:FFFF/105 |
+|                      |                            |
+| Not Network:         | 2001:bd8:2:5::180:0/105    |
+
+</details>
+
+
+<br>
+<br>
+
+&nbsp;
+---
+&nbsp;
 
 
 
