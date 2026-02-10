@@ -318,6 +318,7 @@ What are the steps to configure DHCP?
 !@D1
 conf t
  ip dhcp excluded-address 10.2.1.1 10.2.1.100
+ ip dhcp excluded-address 10.2.1.199 10.2.1.254
  ip dhcp pool MGMTPOOL.COM
   network 10.2.1.0 255.255.255.0
   default-router 10.2.1.254
@@ -751,6 +752,26 @@ conf t
 |                  | 10.1.100.79 /18   |
 |                  | 172.16.145.18 /20 |
 |                  | 192.168.1.205 /30 | 
+
+<br>
+
+~~~
+!@R1
+show ip route static
+conf t
+ no ip route 10.1.1.5 255.255.255.255 10.1.1.2
+ no ip route 10.1.1.6 255.255.255.255 10.1.1.2
+ end
+show ip route static
+~~~
+
+~~~
+!@R1
+conf t
+ ip route 10.1.1.4 255.255.255.252 10.1.1.2
+ end
+show ip route static
+~~~
 
 <br>
 <br>
@@ -2573,13 +2594,6 @@ show ip route
 &nbsp;
 
 ### NAT
-~~~
-INSIDE GLOBAL     INSIDE LOCAL         OUTSIDE LOCAL      OUTSIDE GLOBAL
-~~~
-
-<br>
-<br>
-
 Step 1: Define INSIDE and OUTSIDE
 
 ~~~
@@ -2616,9 +2630,9 @@ Step 3: Configure desired NAT
 ~~~
 !@R1
 conf t
- ip nat inside source static 10.1.1.2 209.9.9.2 
- ip nat inside source static 10.1.1.6 209.9.9.3
- ip nat inside source static 10.1.1.10 209.9.9.4
+ ip nat inside source static 10.1.1.2 208.8.8.10 
+ ip nat inside source static 10.1.1.6 208.8.8.20
+ ip nat inside source static 10.1.1.10 208.8.8.30
  end
 show ip nat translations
 ~~~
@@ -2636,18 +2650,9 @@ ping 8.8.8.8
 
 <br>
 
-Can all of them ping 8.8.8.8? If not, explain why.
-
-<br>
-
 ~~~
-!@R1
-clear ip nat translation *
-conf t
- no ip nat inside source static 10.1.1.6 209.9.9.3
- ip nat inside source static 10.1.1.6 209.9.9.5
- end
-show ip nat translations
+INSIDE GLOBAL     INSIDE LOCAL         OUTSIDE LOCAL      OUTSIDE GLOBAL
+
 ~~~
 
 <br>
@@ -2705,12 +2710,11 @@ conf t
 ---
 &nbsp;
 
-
 ### Dynamic NAT
 ~~~
 !@R1
 conf t
- ip nat pool NATPOOL 208.8.8.10 208.8.8.20 netmask 255.255.255.0
+ ip nat pool NATPOOL 207.7.7.10 207.7.7.20 netmask 255.255.255.0
  ip nat inside source list 1 pool NATPOOL
  end
 ~~~
@@ -2797,33 +2801,6 @@ conf t
 &nbsp;
 ---
 &nbsp;
-
-### Route Maps
-~~~
-conf t
- access-list 1 permit 10.0.0.0 0.255.255.255
- access-list 1 permit 172.16.0.0 0.15.255.255
- access-list 1 permit 192.168.0.0 0.0.255.255
- !
- route-map NAT_ISP1 permit 10
-  match ip address 1
-  match interface e1/1
- route-map NAT_ISP2 permit 10
-  match ip address 1
-  match interface e1/2
- route-map NAT_ISP3 permit 10
-  match ip address 1
-  match interface e1/3
- !
- ip nat pool POOL7 207.7.7.10 207.7.7.254 netmask 255.255.255.0  
- ip nat pool POOL8 208.8.8.10 208.8.8.254 netmask 255.255.255.0
- ip nat pool POOL9 209.9.9.10 209.9.9.254 netmask 255.255.255.0
- ip nat inside source route-map NAT_ISP1 pool POOL8 overload
- ip nat inside source route-map NAT_ISP2 pool POOL7 overload
- ip nat inside source route-map NAT_ISP3 pool POOL9 overload
- end
-~~~
-
 
 
 
