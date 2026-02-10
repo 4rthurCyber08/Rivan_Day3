@@ -3314,43 +3314,15 @@ Compressed Version: 2001:bd8:2:5::100:0/105
 ---
 &nbsp;
 
+## IPV6 AUTOCONFIG vs IPV6 DHCP vs IPV6 EUI-64
 
+### IPV6 AUTOCONFIG
+SLAAC
 
+MUST BE A /64
+~~~
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-IPv6 Static & Default Routing
-
-
-
-IPv6 Transition Technology
-
-
-
-IPv6 autoconfig
-
+~~~
 
 
 
