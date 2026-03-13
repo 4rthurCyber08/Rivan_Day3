@@ -35,7 +35,7 @@ Know the following commands:
  
 ************** Day 1 Configuration **************
 
-!@Switch
+!@3650 Switch
 conf t
  sdm prefer dual-ipv4-and-ipv6 default
  end
@@ -44,13 +44,13 @@ reload
 
 
 !@PC
-IPv6 address: fd00::10:#$34T#:1:10/120
-IPv6 DNS: ::1/128
+IPv6 address:   fd00::10:#$34T#:1:10/120
+IPv6 DNS:       ::1
 
 
 !@CoreTAAS
 conf t
- hostname coreTaas-#$34T#
+ hostname CoreTAAS-#$34T#
  enable secret pass
  service password-encryption
  no logging console
@@ -77,11 +77,13 @@ conf t
   no shut
   ip add 10.#$34T#.10.2 255.255.255.0
   ipv6 add fd00::10:#$34T#:10:2/120
+  ipv6 nd ra suppress
   desc WIFI-VLAN
  int vlan 50
   no shut
   ip add 10.#$34T#.50.2 255.255.255.0
   ipv6 add fd00::10:#$34T#:50:2/120
+  ipv6 nd ra suppress
   desc CCTV-VLAN
  int vlan 100
   no shut
@@ -96,7 +98,7 @@ conf t
 
 !@CoreBABA
 conf t
- hostname coreBaba-#$34T#
+ hostname CoreBABA-#$34T#
  enable secret pass
  service password-encryption
  no logging console
@@ -127,11 +129,13 @@ conf t
   no shut
   ip add 10.#$34T#.10.4 255.255.255.0
   ipv6 add fd00::10:#$34T#:10:4/120
+  ipv6 nd ra suppress
   desc WIFI-VLAN
  int vlan 50
   no shut
   ip add 10.#$34T#.50.4 255.255.255.0
   ipv6 add fd00::10:#$34T#:50:4/120
+  ipv6 nd ra suppressx
   desc CCTV-VLAN
  int vlan 100
   no shut
@@ -562,10 +566,10 @@ conf t
 
 !@ospf routing CUCM
 conf t
-router ospf 1
-router-id 10.#$34T#.100.8
-network 10.#$34T#.100.0 0.0.0.255 area 0
-end
+ router ospf 1
+  router-id 10.#$34T#.100.8
+  network 10.#$34T#.100.0 0.0.0.255 area 0
+  end
 
 !@ospfv3 routing CUCM
 conf t
@@ -917,6 +921,9 @@ conf t
  telephony-service
   ip qos dscp ef ?
 
+
+
+
 ************** SIP Phone CP-8851 Config **************
 
 !@CoreTAAS,CoreBABA
@@ -1098,7 +1105,7 @@ conf t
   dtmf-relay rtp-nte
   codec g711ulaw
   username #$34T#Passa password #$34T#Passa
-  video
+  ! video
   type 8851
  voice register pool 2
   id mac #sip2macadd#
@@ -1116,7 +1123,7 @@ conf t
   codec g711ulaw
   username #$34T#Passb password #$34T#Passb
   type 8851
-  video
+  ! video
   exit
  voice register global
   create profile sync syncinfo.xml
@@ -1537,6 +1544,7 @@ conf t
   no vad
   exit
  no dial-peer voice #$34T#0 Voip
+ !
  !
  !
  dial-peer voice 116 Voip
