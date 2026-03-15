@@ -666,7 +666,7 @@ conf t
   max-dn 40
   max-pool 12
   authenticate register
-  ntp-server 10.32.32.1
+  ntp-server 10.#$34T#.#$34T#.1
   create profile sync syncinfo.xml
   exit
  voice register dn 1
