@@ -1556,9 +1556,6 @@ conf t
  !
  crypto pki trustpoint SECSTORE
   enrollment url http://192.168.102.8/certsrv/mscep/mscep.dll
-  usage ike
-  usage ssl-server
-  usage ssl-client
   serial-number
   fqdn utmph.sec#$34T#.com
   ip-address 208.8.8.11
@@ -1577,9 +1574,6 @@ conf t
  !
  crypto pki trustpoint SECSTORE
   enrollment url http://192.168.102.8/certsrv/mscep/mscep.dll
-  usage ike
-  usage ssl-server
-  usage ssl-client
   serial-number
   fqdn utmjp.sec#$34T#.com
   ip-address 208.8.8.12
