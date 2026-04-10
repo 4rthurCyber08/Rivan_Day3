@@ -1562,7 +1562,7 @@ conf t
   subject-name CN=UTM-PH,OU=NOC,O=RIVANCORP,L=MAKATI,ST=NCR,C=PH
   subject-alt-name utmph.sec#$34T#.com
   revocation-check none
-  source interface GigabitEthernet1
+  source interface GigabitEthernet2
   rsakeypair CERTKEY
   end
 ~~~
@@ -1580,7 +1580,7 @@ conf t
   subject-name CN=UTM-JP,OU=NOC,O=RIVANCORP,L=TOKYO,ST=KANTO,C=JP
   subject-alt-name utmjp.sec#$34T#.com
   revocation-check none
-  source interface GigabitEthernet1
+  source interface GigabitEthernet2
   rsakeypair CERTKEY
   end
 ~~~
