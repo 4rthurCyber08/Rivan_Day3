@@ -255,10 +255,6 @@ Jobs of a router:
 4. &nbsp;
 5. &nbsp;
 
-Static/Default Routing = Minimum Wage  
-OSPF/EIGRP = 30k-40k  
-BGP = 100k up  
-VPN = 30-40k  
 
 <br>
 
