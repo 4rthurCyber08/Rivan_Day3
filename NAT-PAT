@@ -74,7 +74,7 @@ config t
   no auto-reg-ephone
   max-ephones 5
   max-dn 20
-  ip source-address 208.8.8.11 port 2000
+  ip source-address 208.8.8.100 port 2000
   exit
  voice service voip
   allow-connections h323 to sip
@@ -88,7 +88,7 @@ config t
    registrar server expires max 600 min 60
  voice register global
   mode cme
-  source-address 208.8.8.11 port 5060
+  source-address 208.8.8.100 port 5060
   max-dn 12
   max-pool 12
   authenticate register
