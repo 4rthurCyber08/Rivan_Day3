@@ -41,7 +41,7 @@ ping 192.168.103.11
 !@WEBS-2
 sudo su
 hostname WEBS-2
-ifconfig eth0 192.168.102.22 netmask 255.255.255.0 up
+ifconfig eth0 192.168.103.22 netmask 255.255.255.0 up
 route add default gw 192.168.103.11
 ping 192.168.103.11
 
@@ -50,7 +50,7 @@ ping 192.168.103.11
 !@WEBS-3
 sudo su
 hostname WEBS-3
-ifconfig eth0 192.168.102.23 netmask 255.255.255.0 up
+ifconfig eth0 192.168.103.23 netmask 255.255.255.0 up
 route add default gw 192.168.103.11
 ping 192.168.103.11
 
