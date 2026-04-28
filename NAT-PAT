@@ -94,3 +94,24 @@ config t
   authenticate register
   create profile sync syncinfo.xml
   end
+
+
+
+
+
+
+
+
+!@UTM-PH
+config t
+ int g1
+  ip add 208.8.8.200 255.255.255.0 secondary
+  no shut
+  exit
+ ip nat inside source static tcp 21.21.21.211 80 208.8.8.100 8080
+  end
+
+
+
+- 208.8.8.12 8443 > 22.22.22.221 443
+- 208.8.8.12 2222 > 21.21.21.211 22
