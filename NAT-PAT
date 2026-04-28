@@ -1,0 +1,95 @@
+!@UTM
+conf t
+ hostname UTM
+ enable secret pass
+ service password-encryption
+ no logging cons
+ no ip domain lookup
+ line vty 0 14
+  transport input all
+  password pass
+  login local
+  exec-timeout 0 0
+ int g1
+  ip add 208.8.8.11 255.255.255.0
+  no shut
+ int g2
+  ip add 192.168.102.11 255.255.255.0
+  no shut
+ int g3
+  ip add 192.168.103.11 255.255.255.0
+  no shut
+ !
+ username admin privilege 15 secret pass
+ ip http server
+ ip http secure-server
+ ip http authentication local
+ end
+wr
+!
+
+
+!@WEBS-1
+sudo su
+hostname WEBS-1
+ifconfig eth0 192.168.102.21 netmask 255.255.255.0 up
+route add default gw 192.168.102.11
+ping 192.168.102.11
+
+
+
+!@WEBS-2
+sudo su
+hostname WEBS-2
+ifconfig eth0 192.168.102.22 netmask 255.255.255.0 up
+route add default gw 192.168.102.11
+ping 192.168.102.11
+
+
+
+!@WEBS-3
+sudo su
+hostname WEBS-3
+ifconfig eth0 192.168.102.23 netmask 255.255.255.0 up
+route add default gw 192.168.102.11
+ping 192.168.102.11
+
+
+
+
+
+
+
+####
+!@UTM
+config t
+ service finger
+ service tcp-small-servers
+ service udp-small-servers
+ ip dns server
+ ip http server
+ ip http secure-server
+ telephony-service
+  no auto-reg-ephone
+  max-ephones 5
+  max-dn 20
+  ip source-address 208.8.8.11 port 2000
+  exit
+ voice service voip
+  allow-connections h323 to sip
+          
+  allow-connections sip to h323
+  allow-connections sip to sip
+  supplementary-service h450.12
+ sip
+   bind control source-interface g1
+   bind media source-interface g1
+   registrar server expires max 600 min 60
+ voice register global
+  mode cme
+  source-address 208.8.8.11 port 5060
+  max-dn 12
+  max-pool 12
+  authenticate register
+  create profile sync syncinfo.xml
+  end
