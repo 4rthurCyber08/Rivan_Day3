@@ -425,7 +425,7 @@ $$
 \left(
 \frac{10^7 \cdot 65536}{\text{Min.\ BW}}
 +
-\frac{\text{Total Delay (psec)} \cdot 65536}{10}
+\frac{\text{Total Delay (psec)} \cdot 65536}{10^6}
 \right)
 $$
 
