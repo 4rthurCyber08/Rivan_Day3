@@ -939,6 +939,40 @@ conf t
 &nbsp;
 
 
+### 🎯 Exercise: Configure OSPF on R5 and R6. Advertise all connected routes.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+---
+&nbsp;
+
+
 ## OSPF Network Types and Priorities.
 
 ~~~
@@ -976,6 +1010,7 @@ conf t
 
 <br>
 <br>
+
 ---
 &nbsp;
 
@@ -1307,10 +1342,11 @@ conf t
 ---
 &nbsp;
 
+
 ## Path Selection Process : Admin Distance & Metric Cost
-1. __Longest Prefix Match (LPM)__  
-2. __Administrative Distance__
-3. __Metric Cost__
+1. 
+2. 
+3. 
 
 <br>
 
@@ -1708,39 +1744,6 @@ Modifies the AS_PATH so that the AS number is replaced when advertising a route 
 `AllowAS-in`
 Ignore the default behavior of BGP and allow BGP routes with the same AS-PATH to be learned.
 
-<br>
-
-__ALLOWAS-IN__
-~~~
-!@I3 - GLOBE
-conf t
- router bgp 34
-  neighbor 32.3.2.2 allowas-in
-  end
-~~~
-
-~~~
-!@I1 - CONVERGE
-conf t
- router bgp 34
-  neighbor 24.2.4.2 allowas-in
-  end
-~~~
-
-
-<br>
-
-
-__AS-OVERRIDE__
-~~~
-!@I4 - GOOGLE
-conf t
- router bgp 25
-  neighbor 35.3.5.3 as-override
-  neighbor 45.4.5.4 as-override
-  end
-~~~
-
 
 <br>
 <br>
@@ -1955,43 +1958,29 @@ config t
 - If we want to go to 52.52.52.52 we use ISP2:PLDT(207.7.7.2)
 - If we want to go to 53.53.53.53 we use ISP3:GLOBE(209.9.9.3)
 
-<br>
-
-~~~
-!@R1
-config t
- access-list 51 permit host 51.51.51.51
- access-list 53 permit host 53.53.53.53
- !
- route-map ISP1for51 permit 10
-  match ip address 51
-  set weight 51
- route-map ISP1for51 permit 20
-  !
- route-map ISP3for53 permit 10
-  match ip address 53
-  set weight 53
- !
- route-map ISP3for53 permit 20
-  !
- router bgp 1
-  neighbor 208.8.8.4 route-map ISP1for51 in
-  neighbor 209.9.9.3 route-map ISP3for53 in
-  end
-clear ip bgp * soft
-~~~
 
 <br>
-
-~~~
-!@R1
-conf t
- router bgp 1
-  no neighbor 208.8.8.4 route-map ISP1for51 in
-  no neighbor 209.9.9.3 route-map ISP3for53 in
-  end
-clear ip bgp * soft
-~~~
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 <br>
@@ -2501,6 +2490,194 @@ conf t
  !
  router ospf 1
   area 0 filter-list prefix NO-LOOP in
+  end
+~~~
+
+
+<br>
+<br>
+
+---
+&nbsp;
+
+
+## Advance OSPF Concepts
+
+### 1. OSPF LSA & Area Types (LSU > LSA)
+
+| Area Type     | LSA       |
+| ---           | ---       |
+| Normal        | 1,2,3,4,5 |
+| Stub          | 1,2,3     |
+| Totally Stub  | 1,2       |
+| Not So Stubby | 1,2,3,7   |
+| Totally NSSA  | 1,2,5,7   |
+
+
+<br>
+<br>
+
+
+### 2. NSSA & TOTALLY NSSA
+~~~
+!@R3,R4
+conf t
+ router ospf 1
+  area 34 nssa
+  end
+~~~
+
+<br>
+
+__AREA 34 MUST BE A TOTALLY NSSA  ||  R4 T7 LSA > R3 T5 LSA > OSPF__
+~~~
+!@R3
+conf t
+ router ospf 1
+  area 34 nssa no-summary
+  end
+~~~
+
+
+<br>
+<br>
+
+
+### 3. STUBBY AREA & TOTALLY STUBBY AREA
+~~~
+!@R3,R2
+conf t
+ router ospf 1
+  area 352 stub
+  end
+~~~
+
+~~~
+!@R5
+conf t
+ router ospf 1
+  area 352 stub
+  end
+~~~
+
+
+<br>
+<br>
+
+
+__TOTALLY STUBBY AREA__
+~~~
+!@R3,R2
+conf t
+ router ospf 1
+  area 352 stub no-summary
+  end
+~~~
+
+
+&nbsp;
+---
+&nbsp;
+
+
+### 2. EIGRP Stub - prevents stub routers from receiving query packets from their neighbors.
+~~~
+!@A1,A2
+conf t
+ router eigrp CCNPLEVEL
+  address-family ipv4 unicast auto 100
+   eigrp stub connected
+   end
+~~~
+
+
+&nbsp;
+---
+&nbsp;
+
+
+### 3. EIGRP to OSPF Route Map
+~~~
+!@C1,C2
+conf t
+ router eigrp CCNPLEVEL
+  address-family ipv4 unicast auto 100
+   eigrp stub connected summary
+   end
+~~~
+
+~~~
+!@R4
+conf t
+ ip prefix-list DEFAULT-ONLY seq 5 permit 0.0.0.0/0
+ !
+ route-map OSPF-TO-EIGRP permit 10
+  match ip address prefix-list DEFAULT-ONLY
+ !
+ router eigrp CCNPLEVEL
+  address-family ipv4 unicast auto 100
+   topology base
+    redistribute ospf 1 metric 10000 100 255 1 1500 route-map OSPF-TO-EIGRP
+    end
+~~~
+
+
+<br>
+<br>
+
+---
+&nbsp;
+
+
+### OSPF & EIGRP Authentication
+__EIGRP/w KeyChain__
+~~~
+!@C1,C2
+conf t
+ key chain EIGRP
+  key 1
+   key-string C1sc0123
+ int e1/1
+  ip authentication key-chain eigrp 100 EIGRP
+  ip authentication mode eigrp 100 md5
+  end
+show ip ospf neighbor
+~~~
+
+~~~
+!@R4
+conf t
+ key chain EIGRP
+  key 1
+   key-string C1sc0123
+ int range e1/0-1
+  ip authentication key-chain eigrp 100 EIGRP
+  ip authentication mode eigrp 100 md5
+  end
+show ip ospf neighbor
+~~~
+
+
+<br>
+<br>
+
+
+__OSPF/w Hash__
+~~~
+!@R2,R3
+conf t
+ int e1/0
+  ip ospf message-digest-key 1 md5 C1sc0123
+  ip ospf authentication message-digest
+  end
+~~~
+
+~~~
+!@R5
+conf t
+ int range e1/2-3
+  ip ospf message-digest-key 1 md5 C1sc0123
+  ip ospf authentication message-digest
   end
 ~~~
 
