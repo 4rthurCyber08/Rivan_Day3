@@ -2,7 +2,7 @@
 <!-- Your monitor number = #$34T# -->
 
 
-## ⛅ Warm Up for Day 2.
+## ⛅ Warm Up for Day 3.
 *"Repetition is the mother of all skills"*
 
 <br>
