@@ -9,6 +9,8 @@ _3Tier = "8"
 _NetAuto = "9"
 _InterNetwork = "10"
 _VPN = "11"
+_RSTvX2 = "12"
+_MPLSCloud2 = "13"
 
 rst_ip = crt.Dialog.Prompt("What is your RST IPv4 Address? ")
 lab = crt.Dialog.Prompt("""
@@ -25,6 +27,8 @@ WAN = 7
 NetAuto = 9
 InterNetwork = 10
 VPN = 11
+RSTvX2 = 12
+MPLSCloudv2 = 13
 
 Manually enter a series of port numbers = 0 
 
@@ -218,6 +222,49 @@ elif lab == "11":
         "/TELNET " + rst_ip + " 2341",
         "/TELNET " + rst_ip + " 2349",
         "/TELNET " + rst_ip + " 2342"
+    ]
+elif lab == "12":
+    connections = [
+        "/TELNET " + rst_ip + " 2361",
+        "/TELNET " + rst_ip + " 2362",
+        "/TELNET " + rst_ip + " 2363",
+        "/TELNET " + rst_ip + " 2364",
+        "/TELNET " + rst_ip + " 2365",
+        "/TELNET " + rst_ip + " 2366",
+        "/TELNET " + rst_ip + " 2367",
+        "/TELNET " + rst_ip + " 2368",
+        "/TELNET " + rst_ip + " 2369",
+        "/TELNET " + rst_ip + " 2370",
+        "/TELNET " + rst_ip + " 2371",
+        "/TELNET " + rst_ip + " 2372",
+        "/TELNET " + rst_ip + " 2376",
+        "/TELNET " + rst_ip + " 2377",
+        "/TELNET " + rst_ip + " 2373",
+        "/TELNET " + rst_ip + " 2374",
+        "/TELNET " + rst_ip + " 2375",
+        "/TELNET " + rst_ip + " 2378"
+    ]
+elif lab == "13":
+    connections = [
+        "/TELNET " + rst_ip + " 2391",
+        "/TELNET " + rst_ip + " 2392",
+        "/TELNET " + rst_ip + " 2393",
+        "/TELNET " + rst_ip + " 2394",
+        "/TELNET " + rst_ip + " 2389",
+        "/TELNET " + rst_ip + " 2387",
+        "/TELNET " + rst_ip + " 2382",
+        "/TELNET " + rst_ip + " 2383",
+        "/TELNET " + rst_ip + " 2380",
+        "/TELNET " + rst_ip + " 2386",
+        "/TELNET " + rst_ip + " 2381",
+        "/TELNET " + rst_ip + " 2384",
+        "/TELNET " + rst_ip + " 2385",
+        "/TELNET " + rst_ip + " 2388",
+        "/TELNET " + rst_ip + " 2390",
+        "/TELNET " + rst_ip + " 2398",
+        "/TELNET " + rst_ip + " 2397",
+        "/TELNET " + rst_ip + " 2396",
+        "/TELNET " + rst_ip + " 2395"
     ]
 elif lab == "0":
     port_list = []
