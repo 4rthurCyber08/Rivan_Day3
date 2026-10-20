@@ -81,186 +81,21 @@
 | ---                     | ---   |
 | NOT 4th Office          |       |
 
-<br>
-<br>
-
----
-&nbsp;
-
-## 🎯 Review
-
-### 1. What is the reason for the error?
-
-~~~
-Router(config)# interface GigabitEthernet 1/0/1
-Router(config-if)# ip add 192.168.16.143 255.255.255.240
-Bad Mask /28 for address 192.168.16.143
-~~~
-
-&nbsp;
----
-&nbsp;
-
-### 2. Devices fail to obtain IP addresses from a DHCP server. Determine the issue by going through the dhcp configurations shown below.
-
-~~~
-Router# show run | s dhcp
-ip dhcp excluded-address 10.28.0.1 10.28.0.100
-ip dhcp pool mainpool
- network 10.28.0.0 255.255.255.248
- default-router 10.28.0.1 
- domain-name main.com
- dns-server 10.28.1.10
-~~~
-
-&nbsp;
----
-&nbsp;
-
-### 3. Match the Host addresses on the left to their correct IP range on the right.
-
-|     | Host                |         ---        |     | Range (1st Valid - Broadcast)     |
-| --- | ---                 | ---                | --- | ---                               |
-| 1   | 10.187.45.21 /14    |                    | A   | 192.168.100.193 - 192.168.100.223 |
-| 2   | 10.180.201.90 /12   |                    | B   | 10.176.0.1 - 10.191.255.255       |
-| 3   | 172.16.74.5 /20     |                    | C   | 172.16.64.1 - 172.16.79.255       |
-| 4   | 172.16.81.1 /19     |                    | D   | 192.168.100.193 - 192.168.100.208 |
-| 5   | 192.168.100.203 /27 |                    | E   | 10.184.0.1 - 10.187.255.255       |
-| 6   | 192.168.100.195 /28 |                    | F   | 172.16.64.1 - 172.16.95.255       |
-
-&nbsp;
----
-&nbsp;
-
-### 4. Design a network for Cognizant.com with 4720 potential users. Use the IP address space 10.42.0.0 /16
-
-> C:
-
-<br> 
-
-> S:
-
-<br>
-
-> I:  
-
-<br>
-
-| Cognizant.com     | IPv4  |
-| ---               | ---   |
-| Network           |       |
-| First Valid       |       |
-| Last Valid        |       |
-| Last IP/Broadcast |       |
-| ---               | ---   |
-| NOT Cognizant.com |       |
-
-
-&nbsp;
----
-&nbsp;
-
-### 5. Which goal is achieved by the implementation of private IPv4 addressing on a network?
-  - [ ] __A.__ provides an added level of protection against Internet exposure
-  - [ ] __B.__ provides a reduction in size of the forwarding table on network routers
-  - [ ] __C.__ allows communication across the Internet to other private networks
-  - [ ] __D.__ allows servers and workstations to communicate across public network boundaries
-
-&nbsp;
----
-&nbsp;
-
-### 6. Which two options are the best reasons to use an IPV4 private IP space? (Choose two.)
-  - [ ] __A.__ to enable intra-enterprise communication
-  - [ ] __B.__ to implement NAT
-  - [ ] __C.__ to connect applications
-  - [ ] __D.__ to conserve global address space
-  - [ ] __E.__ to manage routing overhead
-
-&nbsp;
----
-&nbsp;
-
-### 7. Which component of an Ethernet frame is used to notify a host that traffic is coming?
-  - [ ] __A.__ Start of Frame Delimiter
-  - [ ] __B.__ Type Field
-  - [ ] __C.__ Preamble
-  - [ ] __D.__ Data Field
-
-&nbsp;
----
-&nbsp;
-
-### 8. Based on the diagram below, what command was entered on the device's Ethernet1/1 interface that registered the following entry to its routing table.
-~~~
-C        10.1.4.4/30 is directly connected, Ethernet1/1
-L        10.1.4.6/32 is directly connected, Ethernet1/1
-~~~
-  - [ ] __A.__ `router(config-if)# ip address 10.1.4.4 255.255.255.252`
-  - [ ] __B.__ `router(config-if)# ip address 10.1.4.4 255.255.255.255`
-  - [ ] __C.__ `router(config-if)# ip address 10.1.4.6 255.255.255.252`
-  - [ ] __D.__ `router(config-if)# ip address 10.1.4.6 255.255.255.255`
-
-&nbsp;
----
-&nbsp;
-
-### 9. What is the destination MAC address of a broadcast frame?
-  - [ ] __A.__ 00:00:0c:07:ac:01
-  - [ ] __B.__ ff:ff:ff:ff:ff:ff
-  - [ ] __C.__ 33:2e:08:00:00:0c
-  - [ ] __D.__ 00:00:0c:43:2e:08
-  - [ ] __E.__ 00:00:0c:ff:ff:ff
-
-&nbsp;
----
-&nbsp;
-
-### 10. Based on the diagram, what is the subnet mask for VLAN 100?
-~~~
-Gateway of last resort is not set
-      10.0.0.0/8 is variably subnetted, 6 subnets, 3 masks
-C        10.1.4.4/30 is directly connected, Ethernet1/1
-L        10.1.4.6/32 is directly connected, Ethernet1/1
-C        10.2.1.0/24 is directly connected, Vlan10
-L        10.2.1.1/32 is directly connected, Vlan10
-C        10.2.2.0/24 is directly connected, Vlan20
-L        10.2.2.1/32 is directly connected, Vlan20
-      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
-C        192.168.1.128/27 is directly connected, Vlan100
-L        192.168.1.129/32 is directly connected, Vlan100
-      192.168.100.0/24 is variably subnetted, 2 subnets, 2 masks
-C        192.168.100.192/29 is directly connected, Loopback1
-L        192.168.100.195/32 is directly connected, Loopback1
-~~~
-
-  - [ ] __A.__ 255.255.255.0
-  - [ ] __B.__ 255.255.255.252
-  - [ ] __C.__ 255.255.255.224
-  - [ ] __D.__ 255.255.255.255
-  - [ ] __E.__ 255.255.255.248
 
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 # 🏢 Establish Network Connectivity
-
-Jobs of a router:  
-1. &nbsp;
-2. &nbsp;
-3. &nbsp;
-4. &nbsp;
-5. &nbsp;
-
 
 <br>
 
 ## Job Interview Questions for L1/L2 NOC-MSP postions.
 ### Interpret the components of a Routing Table.
-A routing table is a database, also known as a FIB (Forwarding Information Base), used by network devices to determine the most efficient path for data packets as they travel across a network.
+A routing table is a database, also known as a RIB (Routing Information Base), used by network devices to determine the most efficient path for data packets as they travel across a network.
 - Linux: `netstat -rn`
 - Windows: `route print`
 - Cisco: `show ip interface brief`
@@ -282,9 +117,12 @@ Devices
 Secret: pass
 ~~~
 
-&nbsp;
+<br>
+<br>
+
 ---
 &nbsp;
+
 
 ### 🎯 Exercise 01: Review on DHCP & IP addressing.
 What are the steps to configure DHCP?  
@@ -311,7 +149,7 @@ What are the steps to configure DHCP?
 
 ### DHCP Loadbalancing
 ~~~
-!@D1
+!@C1
 conf t
  ip dhcp excluded-address 10.2.1.1 10.2.1.100
  ip dhcp excluded-address 10.2.1.199 10.2.1.254
@@ -323,8 +161,10 @@ conf t
   end
 ~~~
 
+<br>
+
 ~~~
-!@D2
+!@C2
 conf t
  ip dhcp excluded-address 10.2.1.1 10.2.1.200
  ip dhcp pool MGMTPOOL.COM
@@ -335,9 +175,13 @@ conf t
   end
 ~~~
 
-&nbsp;
+
+<br>
+<br>
+
 ---
 &nbsp;
+
 
 ### VLAN Assignment - Place PCs (P1, P2) on VLAN 10
 
@@ -379,38 +223,9 @@ conf t
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-  
-~~~
-!@A1
-conf t
- int e0/0
-  switchport mode access
-  switchport access vlan 10
-  end
-~~~
-
-~~~
-!@A2
-conf t
- int e1/0
-  switchport mode access
-  switchport access vlan 10
-  end
-~~~
-
-</details>
-
-&nbsp;
----
-&nbsp;
 
 ### DHCP Clients - Configure P1 & P2 to be a DHCP client.
 
@@ -452,36 +267,9 @@ conf t
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@P1
-conf t
- int e0/0
-  no shut
-  ip add dhcp
-  end
-~~~
-
-~~~
-!@P2
-conf t
- int e1/0
-  no shut
-  ip add dhcp
-  end
-~~~
-
-</details>
-
-<br>
 
 What IP addresses did P1 & P2 get?
 
@@ -490,66 +278,40 @@ What IP addresses did P1 & P2 get?
 show ip int brief | ex una
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
 
-### 🎯 Exercise 02: Static IP addressing.
 
-| Device | VLAN | Host Address      |
-| ---    | ---  | ---               |
-| S1     | 100  | 192.168.1.133 /27 |
-| S2     | 20   | 10.2.2.133 /24    |
-
-Configure S1 & S2 for IP addressing and VLAN assinment as specified on the table above.
-Verify connectivity through the following:
-- Make sure __S1__ is able to ping __D1__, __D2__, __A1__, & __A2__ on __VLAN 100__
-- Make sure __S2__ is able to ping __D1__ & __D2__ on __VLAN 20__
+### Static IP addressing.
 
 ~~~
-!@S1
+!@P1
 conf t
-
-
-
+ int e0/0
+  no shut
+  ip add 10.2.1.101 255.255.255.0
   end
-
-
-!@D1
-conf t
-
-
-
-  end
-
-
-!@S2
-conf t
-
-
-
-  end
-
-
-!@D2
-conf t
- 
-
-
-  end
+show ip int brief | ex una
 ~~~
 
-&nbsp;
----
-&nbsp;
+<br>
 
-### ANSWER
+~~~
+!@P2
+conf t
+ int e1/0
+  no shut
+  ip add 10.2.1.102 255.255.255.0
+  end
+show ip int brief | ex una
+~~~
 
-<details>
-<summary>Show Answer</summary>
-  
+<br>
+
 ~~~
 !@S1
 conf t
@@ -557,16 +319,10 @@ conf t
   ip add 192.168.1.133 255.255.255.224
   no shut
   end
+show ip int brief | ex una
 ~~~
 
-~~~
-!@D1
-conf t
- int e1/0
-  switchport mode access
-  switchport access vlan 100
-  end
-~~~
+<br>
 
 ~~~
 !@S2
@@ -575,24 +331,72 @@ conf t
   ip add 10.2.2.133 255.255.255.0
   no shut
   end
+show ip int brief | ex una
 ~~~
 
-~~~
-!@D2
-conf t
- int e1/0
-  switchport mode access
-  switchport access vlan 20
-  end
-~~~
-
-</details>
 
 <br>
 <br>
 
 ---
 &nbsp;
+
+
+### VLAN Assignment
+
+~~~
+!@C1
+conf t
+ int e1/0
+  switchport mode access
+  switchport access vlan 100
+  end
+show vlan brief
+~~~
+
+<br>
+
+~~~
+!@C2
+conf t
+ int e1/0
+  switchport mode access
+  switchport access vlan 20
+  end
+show vlan brief
+~~~
+
+<br>
+
+~~~
+!@A1
+conf t
+ int e0/0
+  switchport mode access
+  switchport access vlan 10
+  end
+show vlan brief
+~~~
+
+<br>
+
+~~~
+!@A2
+conf t
+ int e1/0
+  switchport mode access
+  switchport access vlan 10
+  end
+show vlan brief
+~~~
+
+
+<br>
+<br>
+
+---
+&nbsp;
+
 
 ## 🔀 Static & Default Routing
 *What is the normal behavior for network connectivity?*
@@ -649,11 +453,13 @@ conf t
 ping 10.1.1.5
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### 🎯 Exercise 03: Configure a static route on R2 destined for R3's e1/2 interface.
 ~~~
@@ -667,30 +473,12 @@ conf t
 <br>
 <br>
 <br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@R2
-conf t
- ip route 10.1.1.9 255.255.255.255 10.1.1.6
- end
-~~~
-
-</details>
-
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### 🎯 Exercise 04: Configure a static route on R1 destined for R3's e1/1 interface.
 ~~~
@@ -704,41 +492,14 @@ conf t
 <br>
 <br>
 <br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@R1
-conf t
- ip route 10.1.1.6 255.255.255.255 10.1.1.2
- end
-~~~
-
 <br>
-
-__Routing must be two way__
-
-~~~
-!@R3
-conf t
- ip route 10.1.1.1 255.255.255.255 10.1.1.5
- end
-~~~
-
-</details>
-
+<br>
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### Host Route vs Network Route
 
@@ -761,6 +522,8 @@ conf t
 show ip route static
 ~~~
 
+<br>
+
 ~~~
 !@R1
 conf t
@@ -771,24 +534,6 @@ show ip route static
 
 <br>
 <br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-	
-| Network           | Host IP           |
-| ---               | ---               |
-| 10.1.64.0 /18     | 10.1.100.79 /18   |
-| 172.16.144.0 /20  | 172.16.145.18 /20 |
-| 192.168.1.204 /30 | 192.168.1.205 /30 | 
- 
-</details>
-
 <br>
 <br>
 
@@ -811,6 +556,8 @@ show int e1/0
 show ip route 
 ~~~
 
+<br>
+
 ~~~
 !@R3
 show ip route static
@@ -820,11 +567,13 @@ conf t
 show ip route static
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 __Configure R1 to be able to reach R4__
 
@@ -847,11 +596,13 @@ vs
 ping 10.1.1.10
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### 🎯 Exercise 07: Configure a static network route on R4 destined to R1's e1/0 interface
 ~~~
@@ -863,48 +614,10 @@ conf t
 
 <br>
 <br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@R4
-conf t
- ip route 10.1.1.0 255.255.255.252 10.1.1.9
- end
-~~~
- 
+<br>
 <br>
 <br>
 
-The next-hop device must also know how to route the packet
-	
-~~~
-!@R2
-conf t
- ip route 10.1.1.8 255.255.255.252 10.1.1.6
- end
-~~~
-
-<br>
-<br>
-
-R4 & R1 can now ping, but that doesn't mean they can ping the network of R3 & R2.
-
-~~~
-!@R4
-conf t
- ip route 10.1.1.4 255.255.255.252 10.1.1.9
- end
-~~~
-
-</details>
 
 <br>
 <br>
@@ -923,11 +636,13 @@ conf t
  end
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ## 🔀 Default Route & Floating Static Route
 ~~~
@@ -976,15 +691,17 @@ conf t
 show ip route static
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
 
+
 ### 🎯 Exercise 08: Configure default routes on A2 with the following settings:
-- __D2__ must be the __primary gateway__
-- __D1__ must be the __secondary gateway__
+- __C2__ must be the __primary gateway__
+- __C1__ must be the __secondary gateway__
 - The __AD__ must have a difference of __10__
 
 ~~~
@@ -997,34 +714,18 @@ conf t
 
 <br>
 <br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@A2
-conf t
- ip route 0.0.0.0 0.0.0.0 192.168.1.130  1
- ip route 0.0.0.0 0.0.0.0 192.168.1.129  10
- end
-~~~
-
-</details>
-
+<br>
+<br>
+<br>
 <br>
 <br>
 
 ---
 &nbsp;
 
-## Path Selection Process : Longest Prefix Match
-1. __Longest Prefix Match (LPM)__  
+
+## Path Selection Process
+1. &nbsp;
 2. &nbsp;
 3. &nbsp;
 
@@ -1056,11 +757,11 @@ traceroute 192.168.1.132
 
 <br>
 
-Why does P1 need to take 2 hop counts to reach D2's VLAN 100?
+Why does P1 need to take 2 hop counts to reach C2's VLAN 100?
 
 <br>
 
-Configure a host static route that takes advantage of the longest prefix rule to allow P1 to go directly to D2 instead of D1.
+Configure a host static route that takes advantage of the longest prefix rule to allow P1 to go directly to C2 instead of C1.
 ~~~
 !@P1
 conf t
@@ -1084,40 +785,13 @@ vs
 traceroute 192.168.1.130
 ~~~
 
-<br>
-
-<details>
-<summary>Why longest prefix?</summary>
-
-### `1 1 1 1   1 1 1 1   .   1 1 1 1   1 1 1 1   .   1 1 1 1   1 1 1 1   .   1 1 1 0   0 0 0 0`
-### `1 1 1 1   1 1 1 1   .   1 1 1 1   1 1 1 1   .   1 1 1 1   1 1 1 1   .   1 1 1 1   1 1 1 1`
-
-</details>
-
-&nbsp;
----
-&nbsp;
-
-### Exam Question: Which Route will P1 use to reach 192.168.1.130 ?
-~~~
-S*    0.0.0.0/0 [254/0] via 10.2.1.254
-      10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
-
-C        10.2.1.0/24 is directly connected, Ethernet0/0
-
-L        10.2.1.101/32 is directly connected, Ethernet0/0
-      192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
-
-S        192.168.1.128/27 [1/0] via 10.2.1.1
-
-S        192.168.1.130/32 [1/0] via 10.2.1.2
-~~~
 
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### 🎯 Exercise 09: Configure static routes on P2, destined for VLAN 100 with the least hop counts possible to D1, D2, A1, and A2.
 
@@ -1131,31 +805,13 @@ conf t
 
 <br>
 <br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@P2
-conf t
- ip route 192.168.1.128 255.255.255.224 10.2.1.2
- ip route 192.168.1.129 255.255.255.255 10.2.1.1
- end
-~~~
-
-</details>
-
+<br>
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### 🎯 Excercise 10: Configure static routes to allow P1 to ping Google (8.8.8.8)
 <br>
@@ -1202,25 +858,17 @@ conf t
 ---
 &nbsp;
 
+
 ## 🔀 Dynamic Routing
-1. IGP (Interior Gateway Protocol)
-  - Link-state - __OSPF__ & __ISIS__
-  - Distance Vector - __EIGRP__ & __RIP__
-
-2. EGP (Exterior Gateway Protocol)
-  - __BGP__ (Border Gateway Protocol)
-
-<br>
-<br>
-
 ~~~
-!@D1,D2,R4
+!@C1,C2,R4
 show version
 ~~~
 
 <br>
 
 If all Cisco, use __EIGRP__
+
 
 &nbsp;
 ---
@@ -1244,7 +892,7 @@ conf t
 ~~~
 
 ~~~
-!@D1
+!@C1
 config t
  router eigrp 100
   no auto-summary
@@ -1261,9 +909,9 @@ end
 ---
 &nbsp;
 
-### 🎯 Excercise 11: Configure EIGRP on D2. Advertise all connected routes.
+### 🎯 Excercise 11: Configure EIGRP on C2. Advertise all connected routes.
 ~~~
-!@D2
+!@C2
 config t
  router ____  ____
   no auto-summary
@@ -1274,31 +922,17 @@ config t
   end
 ~~~
 
+
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@D2
-conf t
- router eigrp 100
-  no auto-summary
-  network 10.1.4.8 0.0.0.3
-  network 10.2.1.0 0.0.0.255
-  network 10.2.2.0 0.0.0.255
-  network 192.168.1.128 0.0.0.31
-  end
-~~~
-
-</details>
 
 ### OPTIONAL
 ### Named EIGRP / Multi Address-Family EIGRP
@@ -1338,41 +972,35 @@ conf t
    end
 ~~~
 
-&nbsp;
----
-&nbsp;
-
-### EIGRP Database
-1. __`show ip eigrp neighbors`__ : Neighbor Table
-2. __`show ip eigrp interfaces`__ : Interface Table
-3. __`show ip eigrp topology`__ : Topology Table
 
 &nbsp;
 ---
 &nbsp;
 
-## Path Selection Process : Admin Distance & Metric Cost
-1. __Longest Prefix Match (LPM)__  
-2. __Administrative Distance__
-3. __Metric Cost__
 
 ~~~
 !@R4
 show ip route
 ~~~
 
-<br>
-
-| Legend | Routing Protocol | Administrative Distance | Metric |
-| ---    | ---              | ---                     | ---    |
-| C      | Connected        |                         |        |
-| S      | Static           |                         |        |
-| D      | EIGRP            |                         |        |
 
 <br>
 <br>
 
-What makes __EIGRP__ a __Distance Vector Protocol__?
+
+### What makes __EIGRP__ a __Distance Vector Protocol__?
+~~~
+!@C1
+conf t
+ int e3/3
+  no shut
+ monitor session 1 source interface e1/2
+ monitor session 1 destination interface e3/3
+ end
+~~~
+
+<br>
+
 ~~~
 !@R4
 show ip protocols
@@ -1391,8 +1019,8 @@ __EIGRP Path Selection:__
 
 | Device | RD  | FD  | Metric Path |
 | ---    | --- | --- | ---         |
-| D1     |     |     |             |
-| D2     |     |     |             |
+| C1     |     |     |             |
+| C2     |     |     |             |
 
 <br>
 
@@ -1403,11 +1031,34 @@ __EIGRP Path Selection:__
 
 <br>
 
+~~~
+!@R4
+conf t
+int e1/1
+ delay 10000
+ end
+~~~
+
+<br>
+
 __Feasability Condition__ - An EIGRP route is a feasible successor route if the RD from the neighbor is less than the FD of the successor route.
+
+<br>
+<br>
+
+| Device | FD  | AD/RD | Role |
+| ---    | --- | ---   | ---  |
+| A      | 46  | 37    |      |
+| B      | 49  | 45    |      |
+| C      | 44  | 29    |      |
+| D      | 51  | 42    |      |
+| E      | 62  | 58    |      |
+
 
 &nbsp;
 ---
 &nbsp;
+
 
 ### EIGRP Loadbalancing Unequal Cost Paths - Variance
 ~~~
@@ -1419,22 +1070,6 @@ conf t
   end
 ~~~
 
-<br>
-
-or 
-
-<br>
-
-~~~
-!@R4
-conf t
- router eigrp CCNPLEVEL
-  address-family ipv4 unicast autonomous-system 100
-   topology base
-    variance 2
-    traffic-share balanced
-    end
-~~~
 
 <br>
 <br>
@@ -1442,46 +1077,8 @@ conf t
 ---
 &nbsp;
 
-### Review
-
-Path Selection Process
-1. &nbsp;
-2. &nbsp;
-3. &nbsp;
-
-<br>
-
-### Exam Question: When the following command was entered on R4, why did the route to 10.2.1.0 changed from D to S
-~~~
-!@R4
-terminal length 0
-show ip route
-!
-conf t
- ip route 10.2.1.0 255.255.255.0 10.1.4.6
- end
-show ip route
-~~~
-
-<br>
-<br>
-
----
-&nbsp;
 
 ## 🔀 OSPF
-*What device do you need to filter data entering your network? Firewall*
-
-<br>
-
-Which is the best firewall?
-1. Palo Alto
-2. Fortinet
-3. Juniper
-4. Cisco Firepower
-
-<br>
-
 What Routing protocol to use if __Multi-Vendor__? __OSPF__
 
 <br>
@@ -1506,50 +1103,17 @@ conf t
 ~~~
 
 <br>
-<br>
-
----
-&nbsp;
-
-### 🎯 Excercise 12: Configure OSPF on R4 with the following settings:
-- Process ID must be 1
-- Advertise all connected routes that belong to OSPF area 0
-- All of R4's interface belongs to Area 0
-- Set R4's router id for OSPF as its loopback 4 IP
-
-~~~
-!@R4
-conf t
- router ___  __
-  router-id __.__.__.__
-  network __.__.__.__  __.__.__.__ area __
-  network __.__.__.__  __.__.__.__ area __
-  end
-~~~
-
-<br>
-<br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
 
 ~~~
 !@R4
 conf t
  router ospf 1
   router-id 4.4.4.4
-  network 4.4.4.4 0.0.0.0 area 0
+  network 4.4.4.4 0.0.0.3 area 0
   network 10.1.1.8 0.0.0.3 area 0
   end
 ~~~
 
-</details>
 
 <br>
 <br>
@@ -1557,10 +1121,11 @@ conf t
 ---
 &nbsp;
 
+
 ### 🎯 Excercise 13: Configure OSPF on R2 with the following settings:
 - Process ID must be 1
-- Advertise all connected routes that belong to OSPF area 0
-- All of R2's interface belongs to Area 0
+- Advertise all connected routes to the correct OSPF Area
+- R2's Router ID belongs to the Backbone Area
 - Set R2's router id for OSPF as its loopback 2 IP
 
 ~~~
@@ -1576,34 +1141,20 @@ conf t
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-	
-~~~
-!@R2
-conf t
- router ospf 1
-  router-id 2.2.2.2
-  network 2.2.2.2 0.0.0.0 area 0
-  network 10.1.1.0 0.0.0.3 area 0
-  network 10.1.1.4 0.0.0.3 area 0
-  end
-~~~
-
-</details>
 
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### OSPF Interface-specific network advertisement.
 ~~~
@@ -1620,20 +1171,13 @@ conf t
   end
 ~~~
 
-&nbsp;
----
-&nbsp;
-
-### OSPF Database
-1. __`show ip ospf neighbors`__ : Neighbor Table
-2. __`show ip ospf interface brief`__ : Interface Table
-3. __`show ip ospf topology-info`__ : Topology Table
 
 &nbsp;
 ---
 &nbsp;
 
-__What makes a dynamic routing protocol?__
+
+### What makes a dynamic routing protocol dynamic?
 
 ~~~
 !@R4
@@ -1663,167 +1207,13 @@ conf t
   end
 ~~~
 
-&nbsp;
----
-&nbsp;
-
-### Capture Hello Packets
-~~~
-!@R4
-conf t
- int e3/3
-  no shut
-  ip add 208.8.8.100 255.255.255.0
-  ip ospf 1 area 0
-  exit
- router eigrp 100
-  network 208.8.8.0 0.0.0.255
-  end
-~~~
-
-<br>
-
-__WireShark__ - Capture Packets from __VMNet8__ & filter __OSPF__  
-
-<br>
-
-## Job Interview Question.
-### What are the contents of an OSPF Hello Packet?
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<details>
-<summary>Show Answer</summary>
-	
-- Router ID/Source OSPF Router
-- Area ID
-- Subnet Mask
-- Authentication Type
-
-- Hello Timer: 10
-- Dead Timer: 40
-- Designated Router
-- Backup Designated Router
-
-</details>
-
-&nbsp;
----
-&nbsp;
-
-### Link-State Routing Protocol
-__LSU__ - Link-State Updates  
-__LSA__ - Link-State Advertisement  
-
-<br>
-
-- Type 1 LSA - (__O__) Router LSA : Router info
-- Type 2 LSA - (__O__) Network LSA : via DR/BDR Network Routes
-- Type 3 LSA - (__O IA__) Summary LSA
-- Type 5 LSA - (__O E2__) AS-External LSA
-
-<br>
-
-~~~
-!@EDGE
-conf t
- int lo#$34T#
-  ip add #$34T#.#$34T#.#$34T#.#$34T# 255.255.255.255
-  ip ospf 1 area #$34T#
-  end
-clear ip ospf process
-yes
-~~~
-
-~~~
-!@R3
-show ip ospf database
-show ip ospf database network
-~~~
-
-&nbsp;
----
-&nbsp;
-
-### OSPF States
-D: __Down__ - The initial state where no hello packets have been received from a neighbor  
-
-<br>
-
-I: __Init__ - A hello packet has been received from a neighbor, but that neighbor's Router ID was not included in the hello packet, indicating a lack of bidirectional communication  
-
-<br>
-
-T: __Two-way__ - Bidirectional communication is established, as both routers have received each other's Router IDs in hello packets. DR/BDR Election occurs.  
-
-<br>
-
-E: __Exstart__ - Routers determine who will be the master and who will be the slave for the upcoming database exchange. The router with the higher Router ID becomes the master and begins the exchange of Database Description (DBD) packets, synchronizing sequence numbers.  
-
-<br>
-
-E: __Exchange__ - Routers exchange DBD packets to describe their Link State Databases (LSDBs). They compare the contents and identify any missing link-state information  
-
-<br>
-
-L: __Loading__ - Routers request the missing link-state information by sending Link-State Requests (LSRs). They then receive Link-State Updates (LSUs) and acknowledge them with Link-State Acknowledgements (LSAs)  
-
-<br>
-
-F: __Full__ - the LSDBs are fully synchronized and identical between the adjacent routers. The routers have all the necessary information to form a complete network map and are ready to share routing data  
-
-<br>
-
-Attempt to view OSPF States
-
-~~~
-!@R2 & R1
-clear ip ospf process
-yes
-show ip ospf neighbor
-~~~
 
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### OSPF Network Types and Priorities.
 ### 🎯 Excercise 14: Ensure R3 is the DR for all its connected networks by completing the following tasks:
@@ -1839,6 +1229,8 @@ conf t
   end
 ~~~
 
+<br>
+
 ~~~
 !@R3
 conf t
@@ -1847,6 +1239,8 @@ conf t
   end
 ~~~
 
+<br>
+
 ~~~
 !@R2
 conf t
@@ -1854,6 +1248,8 @@ conf t
   ip ospf priority 255
   end
 ~~~
+
+<br>
 
 ~~~
 !@R1
@@ -1871,20 +1267,51 @@ Verify:
 show ip ospf neighbor
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
 
-### Neighborship vs Adjacency
-- Same Area
-- Same Subnet Mask/Network
-- Same Network Type
-- Same Hello Interval
-- Same Dead Interval
+
+### Capture Hello Packets
+~~~
+!@R4
+conf t
+ int e3/3
+  no shut
+  ip add 208.8.8.100 255.255.255.0
+  ip ospf 1 area 34
+  end
+~~~
 
 <br>
+
+~~~
+!@CoreBABA
+conf t
+ monitor session 1 source int g0/1
+ monitor session 1 destination int fa0/1,fa0/9
+ end
+~~~
+
+<br>
+
+__WireShark__ - Capture Packets from __VMNet8__ & filter __OSPF__  
+
+<br>
+<br>
+
+
+<br>
+<br>
+
+---
+&nbsp;
+
+
+### Neighborship vs Adjacency
 
 1. __Mismatched Network Type__
 
@@ -1899,10 +1326,14 @@ clear ip ospf process
 yes
 ~~~
 
+<br>
+
 ~~~
 !@R4
 show ip route ospf
 ~~~
+
+<br>
 
 ~~~
 !@R3 & R4
@@ -1975,11 +1406,13 @@ show ip ospf neighbor
 clear ip ospf process
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### OSPF Passive-Interface
 Configure loopback interfaces to not send hello packets
@@ -1992,6 +1425,8 @@ conf t
   end
 ~~~
 
+<br>
+
 ~~~
 !@R2
 conf t
@@ -1999,6 +1434,8 @@ conf t
   passive-interface lo2
   end
 ~~~
+
+<br>
 
 ~~~
 !@R3
@@ -2008,6 +1445,8 @@ conf t
   end
 ~~~
 
+<br>
+
 ~~~
 !@R4
 conf t
@@ -2016,18 +1455,20 @@ conf t
   end
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
 
+
 ### OSPF & EIGRP Redistribution
 ~~~
 !@R4
 config T
  router eigrp 100
-  redistribute ospf 1 metric 10000 100 255 1 1500
+  redistribute ospf 1
   exit
  router ospf 1
   redistribute eigrp 100 subnets
@@ -2046,7 +1487,7 @@ conf t
  router eigrp CCNPLEVEL
   address-family ipv4 unicast autonomous-system 100
    topology base
-    redistribute ospf 1 metric 10000 100 255 1 1500
+    redistribute ospf 1
 	exit
    exit
   exit
@@ -2055,14 +1496,18 @@ conf t
     end
 ~~~
 
-&nbsp;
+
+<br>
+<br>
+
 ---
 &nbsp;
 
-## Path Selection Process : Admin Distance & Metric Cost
-1. __Longest Prefix Match (LPM)__  
-2. __Administrative Distance__
-3. __Metric Cost__
+
+## Path Selection Process 
+1. 
+2. 
+3. 
 
 <br>
 
@@ -2098,13 +1543,254 @@ conf t
   end
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
 
+
+### Link-State Routing Protocol
+~~~
+!@C1
+conf t
+ router ospf 1
+  network 10.1.4.4 0.0.0.3 area 34
+  auto-cost reference-bandwidth 100000
+ !
+ no monitor session 1
+ monitor session 1 source int e1/1
+ monitor session 1 destination int e3/3
+end
+~~~
+
+<br>
+
+~~~
+!@R4
+conf t
+ router ospf 1
+  network 10.1.4.4 0.0.0.3 area 34
+  auto-cost reference-bandwidth 100000
+ !
+ int e3/3
+  shut
+  end
+~~~
+
+
+__LSU__ - Link-State Updates  
+__LSA__ - Link-State Advertisement  
+
+<br>
+
+- Type 1 LSA - (__O__) Router LSA : Router info
+
+~~~
+!@R4
+conf t
+ router ospf 1
+  no network 10.1.4.4 0.0.0.3 area 34
+  network 10.1.4.4 0.0.0.3 area 34
+  end
+~~~
+
+- Type 2 LSA - (__O__) Network LSA : via DR/BDR Network Routes
+
+~~~
+!@R4
+conf t
+ router ospf 1
+  no network 4.4.4.4 0.0.0.3 area 34
+  network 4.4.4.4 0.0.0.3 area 34
+  end
+~~~
+
+- Type 3 LSA - (__O IA__) Summary LSA
+- Type 5 LSA - (__O E2__) AS-External LSA
+
+<br>
+
+~~~
+!@EDGE
+conf t
+ int lo#$34T#
+  ip add #$34T#.#$34T#.#$34T#.#$34T# 255.255.255.255
+  ip ospf 1 area #$34T#
+  end
+clear ip ospf process
+yes
+~~~
+
+~~~
+!@R3
+show ip ospf database
+show ip ospf database network
+~~~
+
+
+&nbsp;
+---
+&nbsp;
+
+
+### OSPF States
+D: __Down__ - The initial state where no hello packets have been received from a neighbor  
+
+<br>
+
+I: __Init__ - A hello packet has been received from a neighbor, but that neighbor's Router ID was not included in the hello packet, indicating a lack of bidirectional communication  
+
+<br>
+
+T: __Two-way__ - Bidirectional communication is established, as both routers have received each other's Router IDs in hello packets. DR/BDR Election occurs.  
+
+<br>
+
+E: __Exstart__ - Routers determine who will be the master and who will be the slave for the upcoming database exchange. The router with the higher Router ID becomes the master and begins the exchange of Database Description (DBD) packets, synchronizing sequence numbers.  
+
+<br>
+
+E: __Exchange__ - Routers exchange DBD packets to describe their Link State Databases (LSDBs). They compare the contents and identify any missing link-state information  
+
+<br>
+
+L: __Loading__ - Routers request the missing link-state information by sending Link-State Requests (LSRs). They then receive Link-State Updates (LSUs) and acknowledge them with Link-State Acknowledgements (LSAs)  
+
+<br>
+
+F: __Full__ - the LSDBs are fully synchronized and identical between the adjacent routers. The routers have all the necessary information to form a complete network map and are ready to share routing data  
+
+<br>
+
+Attempt to view OSPF States
+
+~~~
+!@R2 & R1
+clear ip ospf process
+yes
+show ip ospf neighbor
+~~~
+
+
+<br>
+<br>
+
+---
+&nbsp;
+
+
 ### Route Summarization
+
+Summarize Routes:
+1. OCTET
+1. RANGE 
+2. iTANCHA
+
+
+<br>
+<br>
+
+---
+&nbsp;
+
+
+### 🎯 Exercise: Summarize the ff:
+- 10.1.1.0/30
+- 10.1.1.4/30
+- 10.1.1.8/30
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+&nbsp;
+
+
+### 🎯 Exercise: Summarize the ff:
+- 10.1.20.8/29
+- 10.1.20.16/28
+- 10.1.20.32/30
+- 10.1.20.64/26
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+&nbsp;
+
+
+### 🎯 Exercise: Summarize the ff:
+- 10.144.0.0/13
+- 10.157.0.0/16
+- 10.171.128.0/17
+- 10.183.64.0/18
+- 10.190.240.0/20
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+---
+&nbsp;
+
+
 ~~~
 !@R2
 conf t
@@ -2133,6 +1819,8 @@ conf t
   ip add 10.10.34.129 255.255.255.128
   ip ospf 1 area 12
   exit
+ int range lo8-11,lo33-36
+  ip ospf network point-to-point
  router ospf 1
   passive-interface lo8
   passive-interface lo9
@@ -2145,85 +1833,73 @@ conf t
   end
 ~~~
 
-<br>
-
-Steps to summarize routes for OSPF
-1. Determine the octet in which the Networks increment.
-10.10.8.0
-10.10.9.0
-10.10.10.0
-10.10.11.0
-
-= 3rd Octet
 
 <br>
-
-2. From the specified octet, find the difference between the first network (8) and the last (11).  
-11 - 8 = 3
-
 <br>
 
-3. Pick an i that can aggregate all the routes  
-4i
+
+### 🎯 Exercise: Summarize the ff:
+- 10.10.8.0 /24
+- 10.10.9.0 /24
+- 10.10.10.0 /24
+- 10.10.11.0 /24
+
 
 <br>
-
-4. Determine the new slash based on the chosen i (4i) and the octet (3rd) where the networks increments.
-(3rd Octet, 4i) = /22
-
 <br>
-
-5. Finally, apply the new CIDR (/22) to the lowest network (10.10.8.0). Then, find the network.
-= 10.10.8.0/22
-
 <br>
-
-~~~
-!@R2
-conf t
- router ospf 1
-  area 12 range 10.10.8.0 255.255.252.0
-  end
-~~~
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
 ---
 &nbsp;
 
-### 🎯 Excercise 15: Summarize routes from loopback 33 - loopback 36
-~~~
-!@R2
-conf t
- router ospf __
-  area __ range __.__.__.__  __.__.__.__
-  end
-~~~
+
+### 🎯 Excercise: Summarize routes from loopback 33 - loopback 36
+- 10.10.33.0   /25
+- 10.10.33.128 /25
+- 10.10.34.0   /25
+- 10.10.34.128 /25
+
+
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-&nbsp;
 ---
 &nbsp;
 
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-	
-~~~
-!@R2
-conf t
- router ospf 1
-  area 12 range 10.10.32.0 255.255.252.0 
-  end
-~~~
-
-</details>
-
-<br>
 
 Remove All summarizations
 ~~~
@@ -2235,96 +1911,15 @@ conf t
   end
 ~~~
 
-<br>
-<br>
-
----
-&nbsp;
-
-### 🎯 Excercise 16: Summarize both summarized routes
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<br>
-<br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-	
-~~~
-!@R2
-conf t
- router ospf 1
-  area 12 range 10.10.0.0 255.255.192.0
-  end
-~~~
-
-</details>
-
-<br>
-<br>
-
-~~~
-!@R4
-show ip ospf database
-~~~
 
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### BGP
-Hurrican AS Number
-- Globe
-- PLDT
-- Converge
-
-<br>
-
 R1 = ASN 1  
 I1 & I4(GOOGLE DNS) = ASN 45  
 I2 = ASN 2  
@@ -2351,6 +1946,8 @@ conf t
     end
 ~~~
 
+<br>
+
 ~~~
 !@I1 - CONVERGE
 conf t
@@ -2371,45 +1968,6 @@ conf t
 ~~~
 
 <br>
-<br>
-
----
-&nbsp;
-
-### 🎯 Excercise 17: Configure BGP on I3 - Globe with the following:
-- Advertise all connected networks
-- Set the ASN number to ASN 3
-
-~~~
-!@I3 - GLOBE
-conf t
- router bgp __
-  bgp log-neighbor-changes
-  ______  __.__.__.__ remote-as __
-  ______  __.__.__.__ remote-as __
-  ______  __.__.__.__ remote-as __
-  address-family __
-   ______  __.__.__.__ activate
-   ______  __.__.__.__ activate
-   ______  __.__.__.__ activate
-   ______  __.__.__.__ mask __.__.__.__
-   ______  __.__.__.__ mask __.__.__.__
-   ______  __.__.__.__ mask __.__.__.__
-   ______  __.__.__.__ mask __.__.__.__
-   end
-~~~
-
-<br>
-<br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
 
 ~~~
 !@I3 - GLOBE
@@ -2430,9 +1988,6 @@ conf t
    end
 ~~~
 
-</details>
-
-<br>
 <br>
 
 ~~~
@@ -2455,13 +2010,15 @@ config t
    end
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
 
-### 🎯 Excercise 18: Configure BGP on I2(PLDT). Set the ASN number to 2.
+
+### 🎯 Excercise: Configure BGP on I2(PLDT). Set the ASN number to 2.
 - Advertise the loopback IP
 
 ~~~
@@ -2488,10 +2045,44 @@ config t
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-&nbsp;
+
+<br>
+<br>
+
 ---
 &nbsp;
+
 
 ### ANSWER
 
@@ -2532,18 +2123,23 @@ Verify:
 show bgp summary
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
 
-### BGP - OSPF Redistribution (Default Route Propagation)
+
+### BGP - OSPF Default Route Injection
 ~~~
 !@R1
 conf t
+ ip route 0.0.0.0 0.0.0.0 208.8.8.4 10
+ ip route 0.0.0.0 0.0.0.0 209.9.9.3 20
+ ip route 0.0.0.0 0.0.0.0 207.7.7.2 30
  router ospf 1
-  default-information originate always
+  default-information originate
   end
 ~~~
 
@@ -2583,11 +2179,13 @@ show ip route
 show ip route
 ~~~
 
+
 <br>
 <br>
 
 ---
 &nbsp;
+
 
 ### NAT
 Step 1: Define INSIDE and OUTSIDE
@@ -2606,21 +2204,7 @@ conf t
 <br>
 <br>
 
-Step 2: Create an ACL to match traffic
-
-~~~
-!@R1
-conf t
- access-list 1 permit 10.0.0.0 0.255.255.255
- access-list 1 permit 172.16.0.0 0.15.255.255
- access-list 1 permit 192.168.0.0 0.0.255.255
- end
-~~~
-
-<br>
-<br>
-
-Step 3: Configure desired NAT
+Step 2: Configure desired NAT
 
 ### Static NAT or 1:1
 ~~~
@@ -2679,26 +2263,10 @@ then use the show command to reveal translated IPs on R1.
 
 <br>
 <br>
-
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@R1
-conf t
- ip nat inside source static 10.1.4.6  208.8.8.101
- ip nat inside source static 10.1.4.10  207.7.7.102
- end 
-~~~
-
-</details>
-
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
@@ -2707,9 +2275,14 @@ conf t
 &nbsp;
 
 ### Dynamic NAT
+Create an ACL to match traffic
 ~~~
 !@R1
 conf t
+ access-list 1 permit 10.0.0.0 0.255.255.255
+ access-list 1 permit 172.16.0.0 0.15.255.255
+ access-list 1 permit 192.168.0.0 0.0.255.255
+ !
  ip nat pool NATPOOL 209.9.9.10 209.9.9.20 netmask 255.255.255.0
  ip nat inside source list 1 pool NATPOOL
  end
@@ -2723,27 +2296,30 @@ Verify:
 ping 8.8.8.8
 ~~~
 
+
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
+
 ### PAT 1:Many
-Remove Dynamic NAT
+Add an OVERLOAD Keyword
 ~~~
 !@R1
 clear ip nat trans *
 conf t
- ip nat pool NATPOOL 208.8.8.10 208.8.8.20 netmask 255.255.255.0
- no ip nat inside source list 1 pool NATPOOL
+ ip nat inside source list 1 pool NATPOOL overload
  end
 ~~~
 
 <br>
 
-Configure NAT Overloading / PAT
+or 
+
+<br>
+
 ~~~
 !@R1
 conf t
@@ -2751,12 +2327,13 @@ conf t
  end
 ~~~
 
+
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
+
 
 ### 🎯 Exercise 20: Configure P1, P2, S1, & S2 to successfully ping 8.8.8.8 using a static NAT assignment.
 
@@ -2795,78 +2372,18 @@ S2 = 209.9.9.202
 <br>
 <br>
 <br>
-
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-!@R1
-clear ip nat translations *
-conf t
- ip nat inside source static [P1 IP] 207.7.7.201
- ip nat inside source static [P2 IP] 207.7.7.202
- ip nat inside source static [S1 IP] 209.9.9.201
- ip nat inside source static [S2 IP] 209.9.9.202
- end
-~~~
-
-</details>
-
-
-<br>
-<br>
-
-&nbsp;
----
-&nbsp;
 
 ## IPv6
-*What is a valid IPv6 address?*
 
 <br>
 
 ### IPv6 compression rules  
-
-__1. All zeroes on the left are ommitted.__  
-
-` :00a0:  >   :a0: `  
-
-<br>
-
-__2. Subsequent zeroes turn into double colon.__  
-
-` :0000:0000:0000:00a0:  >  ::a0: `
-
-<br>
-
-### 3. When there are two subsequent zeroes, the one with more zeroes gets turned into :
-while the other zeroes becom :0:  
-
-` :0000:0000:00a0:0000:0000:0000:  >  :0:0:a0:: `
-
-<br>
-
-### 4. When subsequent zeroes match on both sides, the one on the left turns into double colon.
-
-` :0000:0000:00a0:0000:0000:  >  ::a0:0:0: `  
-
-<br>
-<br>
-
-&nbsp;
----
-&nbsp;
-
-### 🎯 Exercise 21: Compress IPv6 address
 
 1. 000a:000c:0000:0000:0000:0000:0000:0000/64
      =
@@ -2900,7 +2417,6 @@ while the other zeroes becom :0:
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
@@ -2922,12 +2438,13 @@ __Determine where the slash is located__
 /120 = (Hextet, Hexadecimal, i)  
 /27  = (Hextet, Hexadecimal, i)  
 
+
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
+
 
 ## IPV6 SUBNETTING (HOSTS):
 
@@ -2983,43 +2500,9 @@ Compressed Version:
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-C: 48 = 6 bits
-S: /128 - 6 bits = /122 (8th, 3rd, 4i)
-I:
-  1st Subnet: fec0:aabb:fafa:dada:0000:0000:0000:0000/122
-  2nd Subnet: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
-
-Compressed Version: fec0:aabb:fafa:dada:0000:0000:0000:0040/122
-~~~
-
-<br>
-
-|                      |                             |
-| ---                  | ---                         |
-| Network/Anycast:     | fec0:aabb:fafa:dada::00/122 |
-| First Valid:         | fec0:aabb:fafa:dada::01/122 |
-| Last Valid:          | fec0:aabb:fafa:dada::3F/122 |
-|                      |                             |
-| Not Network:         | fec0:aabb:fafa:dada::40/122 |
-
-</details>
-
-<br>
-<br>
-
-&nbsp;
----
-&nbsp;
 
 ### 2. Design an IPv6 network for 780 users using the available IPv6 address space of 2001:db8:b:efe:1::/64
 
@@ -3073,43 +2556,6 @@ Compressed Version:
 <br>
 <br>
 
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-C: 780 = 10 bits
-S: /128 - 10 bits = /118 (8th, 2nd, 4i)
-I:
-  1st Subnet: 2001:0db8:000b:0efe:0001:0000:0000:0000:/118
-  2nd Subnet: 2001:0db8:000b:0efe:0001:0000:0000:0400:/118
-
-Compressed Version: 2001:db8:b:efe:1::/118
-~~~
-
-<br>
-
-|                      |                           |
-| ---                  | ---                       |
-| Network/Anycast:     | 2001:db8:b:efe:1::/118    |
-| First Valid:         | 2001:db8:b:efe:1::1/118   |
-| Last Non-Anycast:    | 2001:db8:b:efe:1::37F/118 |
-| First Anycast:       | 2001:db8:b:efe:1::380/118 |
-| Last Anycast:        | 2001:db8:b:efe:1::3FF/118 |
-|                      |                           |
-| Not Network:         | 2001:db8:b:efe:1::400/118 |
-
-</details>
-
-<br>
-<br>
-
-&nbsp;
 ---
 &nbsp;
 
@@ -3171,46 +2617,9 @@ Compressed Version:
 <br>
 <br>
 
-&nbsp;
 ---
 &nbsp;
 
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-C: 16 = 5 bits
-A: /64 + 5 bits = /69 (5th, 2nd, 8i)
-I:
-  1st Subnet: 2001:0db8:0001:0020:0000:0000:0000:0000 /69
-  2nd Subnet: 2001:0db8:0001:0020:0800:0000:0000:0000 /69
-
-Compressed Version: 2001:db8:1:20::/69
-~~~
-
-<br>
-
-|                      |                                      |
-| ---                  | ---                                  |
-| Network/Anycast:     | 2001:db8:1:20::/69                   |
-| First Valid:         | 2001:db8:1:20::1/69                  |
-| Last Non-Anycast:    | 2001:db8:1:20:7FF:FFFF:FFFF:FF7F /69 |
-| First Anycast:       | 2001:db8:1:20:7FF:FFFF:FFFF:FF80 /69 |
-| Last Anycast:        | 2001:db8:1:20:7FF:FFFF:FFFF:FFFF /69 |
-|                      |                                      |
-| Not Network:         | 2001:db8:1:20:800::/69               |
-
-</details>
-
-
-<br>
-<br>
-
-&nbsp;
----
-&nbsp;
 
 ### 2. Subnet for 78 sites using 2001:db8:2:5::/98  Determine the Third Subnet
 
@@ -3268,57 +2677,10 @@ Compressed Version:
 <br>
 <br>
 
-&nbsp;
----
-&nbsp;
-
-### ANSWER
-
-<details>
-<summary>Show Answer</summary>
-
-~~~
-C: 78 = 7 bits
-A: /98 + 7 bits = /105 (7th, 3rd, 8i)
-I:
-  1st Subnet: 2001:0db8:0002:0005:0000:0000:0000:0000 /105
-  2nd Subnet: 2001:0db8:0002:0005:0000:0000:0080:0000 /105
-  3rd Subnet: 2001:0db8:0002:0005:0000:0000:0100:0000 /105
-  4th Subnet: 2001:0db8:0002:0005:0000:0000:0180:0000 /105
-Compressed Version: 2001:bd8:2:5::100:0/105
-~~~
-
-<br>
-
-|                      |                            |
-| ---                  | ---                        |
-| Network/Anycast:     | 2001:bd8:2:5::100:0/105    |
-| First Valid:         | 2001:bd8:2:5::100:1/105    |
-| Last Non-Anycast:    | 2001:bd8:2:5::17F:FF7F/105 |
-| First Anycast:       | 2001:bd8:2:5::17F:FF80/105 |
-| Last Anycast:        | 2001:bd8:2:5::17F:FFFF/105 |
-|                      |                            |
-| Not Network:         | 2001:bd8:2:5::180:0/105    |
-
-</details>
-
-
-<br>
-<br>
-
-&nbsp;
 ---
 &nbsp;
 
 ## IPV6 AUTOCONFIG vs IPV6 DHCP vs IPV6 EUI-64
-
-### IPV6 AUTOCONFIG
-SLAAC
-
-MUST BE A /64
-~~~
-
-~~~
 
 
 
