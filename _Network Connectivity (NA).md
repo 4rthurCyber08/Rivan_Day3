@@ -92,15 +92,6 @@
 # 🏢 Establish Network Connectivity
 
 <br>
-
-## Job Interview Questions for L1/L2 NOC-MSP postions.
-### Interpret the components of a Routing Table.
-A routing table is a database, also known as a RIB (Routing Information Base), used by network devices to determine the most efficient path for data packets as they travel across a network.
-- Linux: `netstat -rn`
-- Windows: `route print`
-- Cisco: `show ip interface brief`
-
-<br>
 <br>
 
 ---
